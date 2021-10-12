@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #fff;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 2px 2px 3px 1px grey, -2px -3px 4px 1px grey;
+            box-sizing: border-box;
+        }
+        
+        #research {
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+        
+        #fuel {
+            width: 83px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #fuel:hover {
+            background-color: coral;
+        }
+        
+        #research {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #research:hover {
+            background-color: coral;
+        }
+        
+        #resea {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #resea:hover {
+            background-color: coral;
+        }
+        
+        #sub {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: darkcyan;
+        }
+        
+        #first {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #second {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #third {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #fourth {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="color:orange">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h1>Predictive analysis</h1>
+                    <h3 id="result">{{ prediction_text }}</h3>
+
+            <hr>
+            <!-- Age -->
+            <hr>
+            <h3>What is your age?</h3>
+            <input id="first" name="age" type="number ">
+
+            <!-- sex -->
+            <hr>
+            <h3> What is your Gender? </h3>
+            <select name='sex' id='sex' required='required'>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+
+            <!-- chest pain type -->
+            <h3>chest pain type</h3>
+            <hr>
+            <select name='cp' id='cp' required='required'>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+            <!-- Resting Blood Pressure -->
+            <hr>
+            <h3>Resting Blood Pressure</h3>
+            <input id="second" name="trestbps" type="number">
+
+            <!-- Cholstral -->
+            <hr>
+            <h3>Cholstral</h3>
+            <input id="third" name="chol" type="number">
+
+            <!-- Fasting Blood Sugar -->
+            <hr>
+            <h3>Fasting Blood Sugar</h3>
+            <select name="fbs" id="fourth">
+                <option value="Yes"> Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <!-- Resting Electro cardiograpghic Results -->
+            <hr>
+            <h3>Resting Electro cardiograpghic Results</h3>
+            <select name="restecg" id="fifth">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+
+            <!-- Maximum heartrate achieved -->
+            <hr>
+            <h3>Maximum heartrate achieved</h3>
+            <input id="sixth" name="thalach" type="number">
+
+            <!-- Exercise included angina -->
+            <hr>
+            <h3>Exercise included angina</h3>
+            <select name="exang" id="seventh">
+                <option value="Yes">Yes</option>
+                <option value="No">NO</option>
+            </select>
+
+            <!-- ST depression induced by exercise relative to rest -->
+            <hr>
+            <h3>ST depression induced by exercise relative to rest</h3>
+            <input id="eighth" name="oldpeak" type="number">
+
+            <!-- slope -->
+            <hr>
+            <h3>Slope</h3>
+            <select name="slope" id="nineth">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+
+
+            <!-- ca -->
+            <hr>
+            <h3>CA</h3>
+            <select name="ca" id="tenth">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+
+
+            <!-- thal -->
+            <hr>
+            <h3>Thal</h3>
+            <select name="thal" id="tenth">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <br><br><button id="sub" type="submit ">Calculate the Disease Prediction</button>
+            <br>
+
+
+
+
+        </form>
+
+
+
+        <br><br>
+    </div>
+
+</body>
+
+</html>
